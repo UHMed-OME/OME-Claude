@@ -1,6 +1,7 @@
 ---
 description: Audit current session for access to regulated PII data (UH EP 2.214)
-allowed-tools: Read, Grep, Glob, Bash(echo:*), mcp__claude_ai_Notion__notion-search, mcp__claude_ai_Notion__notion-fetch, mcp__claude_ai_Gmail__gmail_search_messages, mcp__claude_ai_Google_Calendar__gcal_list_events
+allowed-tools: Read, Grep, Glob, Bash(echo:*), mcp__claude_ai_Notion__notion-search, mcp__claude_ai_Notion__notion-fetch, mcp__claude_ai_Notion__notion-query-database-view, mcp__claude_ai_Gmail__gmail_search_messages, mcp__claude_ai_Google_Calendar__gcal_list_events
+version: 1.1
 ---
 
 # PII Access Audit — UH Data Governance Program (EP 2.214)
@@ -61,14 +62,16 @@ Test what data is accessible through connected MCP tools:
 **Notion (primary KMS):**
 - Search Notion for pages containing: "SSN", "social security", "student grades", "GPA", "salary", "payroll", "HIPAA", "patient", "diagnosis", "FAFSA"
 - For any matches, fetch the page and determine if actual regulated/sensitive data values are present (vs. just policy references)
-- Check if any Notion databases contain columns for regulated data fields
+- Use `notion-query-database-view` to check if any Notion databases contain columns for regulated data fields (e.g., columns named SSN, DOB, GPA, salary)
 
 **Gmail (if connected):**
 - Search for emails containing regulated data keywords: "SSN", "social security number", "grades", "transcript", "HIPAA", "patient information"
 - Report whether the Gmail integration can access messages with regulated content
+- If the Gmail MCP is not connected, note this in Audit Limitations
 
 **Google Calendar (if connected):**
 - Check if calendar events contain regulated PII in titles or descriptions
+- If the Google Calendar MCP is not connected, note this in Audit Limitations
 
 ### 3. Environment & Credentials Check
 - Check for database connection strings that could reach regulated data stores
