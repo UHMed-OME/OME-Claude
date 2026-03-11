@@ -1,4 +1,5 @@
 ---
+name: datagov
 description: Audit current session for access to regulated PII data (UH EP 2.214)
 allowed-tools: Read, Grep, Glob, Bash(echo:*), mcp__claude_ai_Notion__notion-search, mcp__claude_ai_Notion__notion-fetch, mcp__claude_ai_Notion__notion-query-database-view, mcp__claude_ai_Gmail__gmail_search_messages, mcp__claude_ai_Google_Calendar__gcal_list_events
 version: 1.1
