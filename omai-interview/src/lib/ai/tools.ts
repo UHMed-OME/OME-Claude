@@ -1,4 +1,3 @@
-// src/lib/ai/tools.ts
 import type { Specialty, InterviewMode } from '../../types/interview'
 import { getQuestion } from './questionBank'
 

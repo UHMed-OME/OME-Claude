@@ -1,4 +1,3 @@
-// src/lib/ai/prompts.ts
 import type { Specialty, InterviewMode } from '../../types/interview'
 import { SPECIALTY_LABELS, MODE_LABELS } from '../../types/interview'
 
@@ -9,7 +8,7 @@ export function buildSystemPrompt(
   const specialtyName = SPECIALTY_LABELS[specialty]
   const modeName = MODE_LABELS[mode]
 
-  const modeInstructions: Record<InterviewMode, string> = {
+  const modeInstructions = {
     behavioral: `You ask competency-based and MMI-style behavioral questions. Focus on past experience, communication, professionalism, and ethical reasoning. Ask "tell me about a time..." style questions. Use the STAR framework implicitly to probe responses.`,
     clinical: `You present clinical scenarios relevant to ${specialtyName}. Present a patient case, then ask the candidate to walk through their evaluation and management. Ask follow-up questions to probe depth of clinical reasoning.`,
     mixed: `You alternate between behavioral/MMI questions and clinical case scenarios for ${specialtyName}. Mix question types naturally throughout the interview as a real interviewer would. When calling \`get_question\`, always pass either "behavioral" or "clinical" as the mode — never "mixed". Alternate between the two types across questions.`,
