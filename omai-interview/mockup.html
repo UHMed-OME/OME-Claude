@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OMAI — Screen Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #d6d2cb;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.page-header { text-align: center; }
+.page-header .logo { font-size: 24px; font-weight: 800; color: #0d4a25; letter-spacing: -0.5px; }
+.page-header .tagline { font-size: 12px; color: #888; margin-top: 6px; letter-spacing: 0.03em; }
+
+/* Screen wrapper */
+.screen-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.screen-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a968f;
+}
+.screen-frame {
+  width: 1280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
+  background: #f8f5f0;
+}
+
+/* ─────────────────────────────────────────
+   SHARED TOP NAV
+───────────────────────────────────────── */
+.top-nav {
+  height: 52px;
+  background: white;
+  border-bottom: 1px solid #ebe7e0;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0d4a25;
+  letter-spacing: -0.03em;
+  margin-right: 36px;
+}
+.nav-links {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+.nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  padding: 6px 14px;
+  cursor: pointer;
+  position: relative;
+}
+.nav-link.active {
+  color: #0d4a25;
+  font-weight: 600;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: #0d4a25;
+  border-radius: 1px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0ece6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0d4a25;
+}
+
+/* ─────────────────────────────────────────
+   DOCTOR PHOTO PLACEHOLDER
+   A CSS human silhouette
+───────────────────────────────────────── */
+.doctor-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #c8d8c8;
+}
+.doctor-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.doctor-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sil-head {
+  border-radius: 50%;
+  background: linear-gradient(160deg, #e8f0e8 0%, #c0d4c0 100%);
+  flex-shrink: 0;
+}
+.sil-body {
+  background: linear-gradient(180deg, #cce0cc 0%, #9ab89a 100%);
+  border-radius: 40% 40% 0 0;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   SCREEN 1 — INTERVIEW LOBBY
+───────────────────────────────────────── */
+.lobby-body {
+  display: flex;
+  gap: 0;
+  background: #f8f5f0;
+  min-height: 660px;
+}
+
+.lobby-left {
+  flex: 1;
+  padding: 36px 40px 36px 48px;
+  border-right: 1px solid #ece8e1;
+}
+
+.breadcrumb {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  margin-bottom: 18px;
+}
+
+.lobby-heading {
+  font-size: 56px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+  margin-bottom: 14px;
+}
+
+.lobby-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.65;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+/* Doctor card */
+.doc-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.09);
+  max-width: 520px;
+}
+.doc-photo {
+  height: 300px;
+}
+.doc-photo .doctor-silhouette {
+  bottom: -4px;
+}
+.doc-photo .sil-head {
+  width: 100px;
+  height: 100px;
+  margin-bottom: -8px;
+}
+.doc-photo .sil-body {
+  width: 220px;
+  height: 200px;
+}
+.interviewer-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0,0,0,0.65);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  backdrop-filter: blur(4px);
+}
+.online-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+.doc-info {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #f0ece6;
+}
+.doc-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b8d0b8, #759e85);
+  flex-shrink: 0;
+}
+.doc-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+.doc-title {
+  font-size: 11.5px;
+  color: #888;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* Right panel */
+.lobby-right {
+  width: 360px;
+  flex-shrink: 0;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+}
+.panel-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #bbb;
+  margin-bottom: 14px;
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.check-row + .check-row {
+  border-top: 1px solid #f5f1eb;
+}
+.check-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.status-optimal { background: #dcfce7; color: #16a34a; }
+.status-good { background: #f0fdf4; color: #16a34a; }
+
+.cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+}
+.cl-item + .cl-item {
+  border-top: 1px solid #f5f1eb;
+}
+.cl-box {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  border: 1.5px solid #ddd;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cl-box.checked {
+  background: #0d4a25;
+  border-color: #0d4a25;
+}
+.cl-check {
+  color: white;
+  font-size: 10px;
+  font-weight: 900;
+}
+.cl-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+  line-height: 1.4;
+}
+.cl-sub {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.enter-btn {
+  background: #0d4a25;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.lobby-footer {
+  background: white;
+  border-top: 1px solid #ece8e1;
+  padding: 11px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-meta {
+  display: flex;
+  gap: 28px;
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+.footer-meta span { display: flex; align-items: center; gap: 7px; }
+.footer-powered {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+/* ─────────────────────────────────────────
+   SCREEN 2 — OFFICIAL INTERVIEW ROOM
+───────────────────────────────────────── */
+.room-outer {
+  background: #f2efea;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-header {
+  background: white;
+  border-bottom: 1px solid #ece8e1;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+.room-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.room-session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.room-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0d4a25;
+}
+.room-session-id {
+  font-size: 11px;
+  color: #aaa;
+}
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.02em;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+}
+
+.room-video-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 40px 20px;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 960px;
+  height: 440px;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 60px rgba(0,0,0,0.12);
+  position: relative;
+}
+.video-bg {
+  width: 100%;
+  height: 100%;
+  background: #c0d0c0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.video-silhouette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -2px;
+}
+.video-silhouette .sil-head {
+  width: 140px;
+  height: 140px;
+  margin-bottom: -12px;
+  background: linear-gradient(160deg, #e0ece0 0%, #c0d8c0 100%);
+}
+.video-silhouette .sil-body {
+  width: 440px;
+  height: 280px;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(180deg, #d0e4d0 0%, #94b894 100%);
+}
+
+.video-name-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  padding: 8px 14px;
+  backdrop-filter: blur(8px);
+}
+.video-dr-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+.video-dr-role {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+.student-pip {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 168px;
+  height: 112px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2.5px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  background: linear-gradient(160deg, #c8dce8 0%, #8aafc0 100%);
+}
+
+.room-controls {
+  background: white;
+  border-top: 1px solid #ece8e1;
+  padding: 16px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.ctrl-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.ctrl-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+.ctrl-mute { background: #f2efe9; }
+.ctrl-end {
+  background: #ef4444;
+  width: 54px;
+  height: 54px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ctrl-video { background: #f2efe9; }
+.end-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ef4444;
+}
+
+/* ─────────────────────────────────────────
+   SCREEN 3 — SELF-ASSESSMENT REPORT
+───────────────────────────────────────── */
+.report-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 760px;
+}
+
+.report-top-nav {
+  height: 52px;
+  background: white;
+  border-bottom: 1px solid #ebe7e0;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+}
+
+.report-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 215px;
+  flex-shrink: 0;
+  background: white;
+  border-right: 1px solid #ebe7e0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.sidebar-logo {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0d4a25;
+  letter-spacing: -0.03em;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid #f0ece6;
+}
+.sidebar-nav {
+  padding: 12px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  cursor: pointer;
+}
+.sb-item.active {
+  background: #eef7ee;
+  color: #0d4a25;
+  font-weight: 600;
+}
+.sb-icon {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+  opacity: 0.75;
+}
+.sidebar-bottom {
+  padding: 14px 16px;
+  border-top: 1px solid #f0ece6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sb-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0d4a25;
+  flex-shrink: 0;
+}
+.sb-user-name { font-size: 12px; font-weight: 600; color: #333; }
+.sb-logout { font-size: 11px; color: #bbb; cursor: pointer; }
+
+/* Report main */
+.report-main {
+  flex: 1;
+  background: #f8f5f0;
+  padding: 30px 40px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.report-breadcrumb {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.session-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.report-heading {
+  font-size: 34px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  max-width: 640px;
+}
+
+.report-desc {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 26px;
+}
+
+.score-badge {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.score-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #0d4a25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-pct { font-size: 18px; font-weight: 800; color: white; line-height: 1; }
+.score-lbl { font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+.score-text { font-size: 9px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; }
+
+.report-content {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+/* Report doctor photo */
+.report-doc-card {
+  width: 190px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.07);
+}
+.report-doc-photo {
+  height: 210px;
+}
+.report-doc-photo .sil-head {
+  width: 80px;
+  height: 80px;
+  margin-bottom: -8px;
+}
+.report-doc-photo .sil-body {
+  width: 170px;
+  height: 158px;
+}
+.report-doc-info {
+  padding: 12px 14px;
+  border-top: 1px solid #f5f1eb;
+}
+.report-doc-name { font-size: 13px; font-weight: 700; color: #111; }
+.report-doc-role { font-size: 11px; color: #888; margin-top: 2px; line-height: 1.4; }
+
+/* Narrative area */
+.narrative-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.narr-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+}
+.narr-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.narr-quote {
+  font-size: 12.5px;
+  color: #444;
+  line-height: 1.65;
+  font-style: italic;
+  border-left: 3px solid #0d4a25;
+  padding-left: 12px;
+  margin-bottom: 14px;
+}
+.comm-section-title {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+.comm-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+  padding: 4px 0;
+}
+.comm-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.diag-card {
+  background: #0d4a25;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.diag-title {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+}
+.diag-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+/* Metrics */
+.metrics-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 0;
+}
+.metric-card {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+}
+.metric-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+}
+.metric-text {
+  font-size: 11.5px;
+  color: #777;
+  line-height: 1.55;
+}
+
+/* Report footer */
+.report-footer {
+  background: white;
+  border-top: 1px solid #ece8e1;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.footer-certs {
+  display: flex;
+  gap: 20px;
+}
+.cert-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.report-btns {
+  display: flex;
+  gap: 10px;
+}
+.r-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  letter-spacing: -0.01em;
+}
+.r-btn-secondary {
+  background: #f5f1eb;
+  color: #333;
+}
+.r-btn-primary {
+  background: #0d4a25;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="logo">OMAI</div>
+  <div class="tagline">AI-Powered Residency Interview Practice · JABSOM</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SCREEN 1 — INTERVIEW LOBBY
+═══════════════════════════════════════ -->
+<div class="screen-block">
+  <div class="screen-label">1 — Interview Lobby</div>
+  <div class="screen-frame">
+
+    <!-- Top Nav -->
+    <div class="top-nav">
+      <div class="nav-logo">OMAI</div>
+      <div class="nav-links">
+        <span class="nav-link">Dashboard</span>
+        <span class="nav-link active">Interview</span>
+        <span class="nav-link">Reports</span>
+      </div>
+      <div class="nav-right">
+        <div class="nav-icon-btn">🔔</div>
+        <div class="nav-avatar"></div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="lobby-body">
+      <!-- Left column -->
+      <div class="lobby-left">
+        <div class="breadcrumb">JABSOM Residency Program &rsaquo; Room 401-B</div>
+        <h1 class="lobby-heading">Interview Lobby</h1>
+        <p class="lobby-desc">Welcome, Candidate. Please complete your final technical checks and review the residency checklist before entering the formal session.</p>
+
+        <div class="doc-card">
+          <div class="doc-photo doctor-photo-wrap">
+            <div class="interviewer-badge">
+              <div class="online-dot"></div>
+              Interviewer Online
+            </div>
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=85" alt="Dr. Alana Wong" />
+          </div>
+          <div class="doc-info">
+            <div class="doc-avatar"></div>
+            <div>
+              <div class="doc-name">Dr. Alana Wong, MD</div>
+              <div class="doc-title">Chief of Internal Medicine and Academic Research</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="lobby-right">
+
+        <!-- Technical Check -->
+        <div class="panel-card">
+          <div class="panel-title">Technical Check</div>
+          <div class="check-row">
+            <span class="check-label">Microphone Levels</span>
+            <span class="status-pill status-optimal">Optimal</span>
+          </div>
+          <div class="check-row">
+            <span class="check-label">Network Stability</span>
+            <span class="status-pill status-good" style="font-size:13px;background:none;padding:0;font-weight:700;color:#16a34a;">96.08</span>
+          </div>
+        </div>
+
+        <!-- Pre-Interview Checklist -->
+        <div class="panel-card" style="flex:1;">
+          <div class="panel-title">Pre-Interview Checklist</div>
+          <div class="cl-item">
+            <div class="cl-box checked"><span class="cl-check">✓</span></div>
+            <div>
+              <div class="cl-text">Confirm Personal Identity</div>
+              <div class="cl-sub">Validated via JABSOM portal</div>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-box checked"><span class="cl-check">✓</span></div>
+            <div>
+              <div class="cl-text">Personal Statement Ready</div>
+              <div class="cl-sub">Document uploaded to drive</div>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-box"></div>
+            <div>
+              <div class="cl-text">Background Environment</div>
+              <div class="cl-sub">Professional setting preferred</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="enter-btn">
+          Enter Interview Room <span>→</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="lobby-footer">
+      <div class="footer-meta">
+        <span>🕐 Scheduled: 10:30 AM HST</span>
+        <span>📋 Interview Type: Multi-MMI (MMI)</span>
+      </div>
+      <div class="footer-powered">Powered by OMAI Global Cloud Systems</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SCREEN 2 — OFFICIAL INTERVIEW ROOM
+═══════════════════════════════════════ -->
+<div class="screen-block">
+  <div class="screen-label">2 — Official Interview Room</div>
+  <div class="screen-frame">
+    <div class="room-outer">
+
+      <!-- Header -->
+      <div class="room-header">
+        <div class="room-header-left">
+          <div class="nav-logo">OMAI</div>
+          <div class="room-session-info">
+            <div class="room-label">Official Interview Room</div>
+            <div class="room-session-id">Session ID: 0462-0234-8663</div>
+          </div>
+        </div>
+        <div class="live-badge">
+          <div class="live-dot"></div>
+          Live Connection
+        </div>
+      </div>
+
+      <!-- Video area -->
+      <div class="room-video-area">
+        <div class="video-frame">
+          <div class="video-bg">
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1200&q=85" alt="Dr. Sarah Henderson" />
+          </div>
+          <div class="video-name-tag">
+            <div class="video-dr-name">Dr. Sarah Henderson</div>
+            <div class="video-dr-role">Chief of Medical Residency Admissions</div>
+          </div>
+          <div class="student-pip"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="room-controls">
+        <div class="ctrl-buttons">
+          <button class="ctrl-btn ctrl-mute">🎙</button>
+          <button class="ctrl-btn ctrl-end">✕</button>
+          <button class="ctrl-btn ctrl-video">📷</button>
+        </div>
+        <div class="end-label">End Call</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SCREEN 3 — SELF-ASSESSMENT REPORT
+═══════════════════════════════════════ -->
+<div class="screen-block">
+  <div class="screen-label">3 — Self-Assessment Report</div>
+  <div class="screen-frame">
+    <div class="report-wrap">
+
+      <!-- Top nav bar -->
+      <div class="report-top-nav">
+        <div class="nav-logo">OMAI</div>
+        <div class="nav-links">
+          <span class="nav-link">Dashboard</span>
+          <span class="nav-link">Interviews</span>
+          <span class="nav-link active">Reports</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-icon-btn">🔔</div>
+          <div class="nav-avatar"></div>
+        </div>
+      </div>
+
+      <div class="report-body">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="sidebar-logo">OMAI</div>
+          <div class="sidebar-nav">
+            <div class="sb-item"><span class="sb-icon">⊞</span> Overview</div>
+            <div class="sb-item"><span class="sb-icon">🎤</span> Interviews</div>
+            <div class="sb-item"><span class="sb-icon">📅</span> Schedule</div>
+            <div class="sb-item"><span class="sb-icon">👤</span> Candidates</div>
+            <div class="sb-item active"><span class="sb-icon">📊</span> Analytics</div>
+            <div class="sb-item"><span class="sb-icon">💬</span> Support</div>
+          </div>
+          <div class="sidebar-bottom">
+            <div class="sb-avatar"></div>
+            <div>
+              <div class="sb-user-name">Student</div>
+              <div class="sb-logout">Logout</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="report-main">
+
+          <div class="score-badge">
+            <div class="score-circle">
+              <div class="score-pct">100%</div>
+              <div class="score-lbl">Full</div>
+            </div>
+            <div class="score-text">Full Review</div>
+          </div>
+
+          <div class="report-breadcrumb">OMAI &rsaquo; Reports</div>
+          <div class="session-tag">✦ Session #4429 · Oct 28, 2025</div>
+          <h1 class="report-heading">Self-Assessment Report</h1>
+          <p class="report-desc">A qualitative synthesis of clinical performance, diagnostic reasoning, and interpersonal nuance captured during the AI-facilitated medical residency simulation.</p>
+
+          <!-- Content row -->
+          <div class="report-content">
+
+            <!-- Doctor photo -->
+            <div class="report-doc-card">
+              <div class="report-doc-photo doctor-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=400&q=85" alt="Dr. Elena Vance" />
+              </div>
+              <div class="report-doc-info">
+                <div class="report-doc-name">Dr. Elena Vance, MD</div>
+                <div class="report-doc-role">Lead Residency Evaluator</div>
+              </div>
+            </div>
+
+            <!-- Narrative -->
+            <div class="narrative-area">
+              <div class="narr-card">
+                <div class="narr-title">🧠 Clinical Reasoning Narrative</div>
+                <div class="narr-quote">"Your synthesis of the patient's history with the subtle radiological findings suggested a sophisticated level of pattern-recognition that exceeds typical residency entrance expectations."</div>
+                <div class="comm-section-title">Communication Nuance</div>
+                <div class="comm-point"><div class="comm-bullet"></div>Maintained empathetic tone during clinical disclosure scenarios</div>
+                <div class="comm-point"><div class="comm-bullet"></div>Avoided jargon when addressing the patient proxy</div>
+              </div>
+              <div class="diag-card">
+                <div class="diag-title">Diagnostic Fidelity</div>
+                <div class="diag-text">Demonstrated an accurate prioritization of the diagnosis presentation. Effective use of the digital human during the multi-patient management phase.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metrics -->
+          <div class="metrics-row">
+            <div class="metric-card">
+              <div class="metric-title">Decision Velocity</div>
+              <div class="metric-text">Response times were consistent within critical care scenarios. No significant hesitations during acute triage phases.</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Evidence Application</div>
+              <div class="metric-text">Effective use of recent clinical trials in justifying medication selection for the simulated patient cohort.</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Technical Proficiency</div>
+              <div class="metric-text">Interface interactions were seamless. Effective use of the digital human suite during multi-patient management.</div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="report-footer">
+            <div class="footer-certs">
+              <div class="cert-badge">✓ Validated Academic Report</div>
+              <div class="cert-badge">🔒 JABSOM Compliant Data</div>
+            </div>
+            <div class="report-btns">
+              <button class="r-btn r-btn-secondary">Download PDF</button>
+              <button class="r-btn r-btn-primary">Share with Program Director →</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
