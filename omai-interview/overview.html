@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OMAI — Project Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:        #0d4a25;
+  --green-mid:    #1a6b38;
+  --green-light:  #e8f0ea;
+  --cream:        #faf8f5;
+  --warm-border:  #e4ddd3;
+  --text:         #1a1a1a;
+  --text-mid:     #4a4a4a;
+  --text-muted:   #888;
+  --serif:        'Playfair Display', Georgia, serif;
+  --sans:         'Source Sans 3', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  background: #ddd8cf;
+  color: var(--text);
+  padding: 48px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── PAGE WRAPPER ─────────────────────────────────────── */
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--cream);
+  box-shadow: 0 12px 80px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ─── HEADER ───────────────────────────────────────────── */
+.header {
+  background: var(--green);
+  padding: 48px 56px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.035);
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 15%;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.025);
+  pointer-events: none;
+}
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.logo-mark { display: flex; flex-direction: column; gap: 6px; }
+.logo-word {
+  font-family: var(--serif);
+  font-size: 46px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+.logo-sub {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.institution-badge { text-align: right; }
+.inst-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.55;
+}
+.inst-sub {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+
+.header-rule {
+  height: 1px;
+  background: rgba(255,255,255,0.14);
+  margin-bottom: 28px;
+}
+.hero-statement {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.93);
+  line-height: 1.6;
+  max-width: 580px;
+}
+.hero-em {
+  color: #86efac;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ─── BODY ─────────────────────────────────────────────── */
+.body { padding: 52px 56px; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--warm-border);
+}
+
+/* ─── PROBLEM ──────────────────────────────────────────── */
+.problem-section { margin-bottom: 52px; }
+
+.problem-heading {
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 22px;
+}
+
+.problem-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.problem-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+.problem-list li::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ─── HOW IT WORKS ─────────────────────────────────────── */
+.how-section { margin-bottom: 52px; }
+
+.steps {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 56px; right: 56px;
+  height: 1px;
+  background: var(--warm-border);
+  z-index: 0;
+}
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.step:nth-child(2) .step-num { background: var(--green-mid); }
+.step-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.step-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── SCREENSHOTS ──────────────────────────────────────── */
+.screenshots-section { margin-bottom: 52px; }
+
+.screenshots-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.shot-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.shot-item img {
+  width: 100%;
+  border-radius: 7px;
+  border: 1px solid var(--warm-border);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.05);
+  display: block;
+}
+.shot-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.shot-caption {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ─── FEATURES ─────────────────────────────────────────── */
+.features-section { margin-bottom: 52px; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+.feature-card {
+  background: white;
+  border: 1px solid var(--warm-border);
+  border-radius: 8px;
+  padding: 20px 18px 18px;
+}
+.feat-icon {
+  width: 34px; height: 34px;
+  background: var(--green-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: var(--green);
+}
+.feat-icon svg { width: 17px; height: 17px; }
+.feat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.feat-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── STATUS ───────────────────────────────────────────── */
+.status-section {
+  background: white;
+  border: 1px solid var(--warm-border);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 26px 28px;
+}
+.status-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.status-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 13px;
+  border-radius: 20px;
+}
+.badge-done { background: #dcfce7; color: #166534; }
+.badge-wip  { background: #fef9c3; color: #854d0e; }
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+.footer {
+  background: var(--green);
+  padding: 22px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+.footer-left strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+.footer-right {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ─── PRINT ────────────────────────────────────────────── */
+@page { size: letter; margin: 0; }
+@media print {
+  body { background: white; padding: 0; }
+  .page { box-shadow: none; max-width: 100%; }
+  .header,
+  .footer,
+  .step-num,
+  .feat-icon,
+  .shot-tag,
+  .badge,
+  .status-section,
+  .section-label { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="logo-mark">
+        <div class="logo-word">OMAI</div>
+        <div class="logo-sub">AI-Powered Residency Interview Practice</div>
+      </div>
+      <div class="institution-badge">
+        <div class="inst-name">John A. Burns School of Medicine</div>
+        <div class="inst-sub">University of Hawaiʻi · Office of Medical Education</div>
+      </div>
+    </div>
+    <div class="header-rule"></div>
+    <p class="hero-statement">
+      OMAI gives medical students <span class="hero-em">unlimited, realistic residency interview practice</span> with an AI interviewer — available any time, with instant feedback.
+    </p>
+  </header>
+
+  <!-- BODY -->
+  <main class="body">
+
+    <!-- THE CHALLENGE -->
+    <section class="problem-section">
+      <div class="section-label">The Challenge</div>
+      <h2 class="problem-heading">Residency interviews are high-stakes.<br/>Practice opportunities are not.</h2>
+      <ul class="problem-list">
+        <li>Residency match outcomes significantly shape a physician's career — yet most students have little structured preparation beyond one or two informal mock interviews.</li>
+        <li>Coaching and practice resources are unevenly distributed, placing students from smaller programs at a disadvantage before they ever walk into a panel.</li>
+        <li>Faculty time is precious and finite. Students need a way to rehearse on their own, at their own pace, as many times as it takes.</li>
+      </ul>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+      <div class="section-label">How It Works</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Choose Your Specialty &amp; Format</div>
+          <div class="step-desc">Select from 6 residency specialties and a behavioral, clinical, or mixed interview mode.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">Practice with Your AI Interviewer</div>
+          <div class="step-desc">A lifelike AI doctor conducts a live, spoken interview — asking real questions, responding in real time.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Review Your Performance</div>
+          <div class="step-desc">Receive a full transcript and self-assessment report immediately after the session ends.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="screenshots-section">
+      <div class="section-label">App Preview</div>
+      <div class="screenshots-row">
+        <div class="shot-item">
+          <img src="https://raw.githubusercontent.com/UHMed-OME/OME-Claude/c1aa72b/omai-interview/screenshots/screen-1-lobby.png" alt="Interview Lobby" />
+          <span class="shot-tag">Step 1</span>
+          <div class="shot-caption">Interview Lobby</div>
+        </div>
+        <div class="shot-item">
+          <img src="https://raw.githubusercontent.com/UHMed-OME/OME-Claude/c1aa72b/omai-interview/screenshots/screen-2-interview.png" alt="Live Interview Room" />
+          <span class="shot-tag">Step 2</span>
+          <div class="shot-caption">Live Interview Room</div>
+        </div>
+        <div class="shot-item">
+          <img src="https://raw.githubusercontent.com/UHMed-OME/OME-Claude/c1aa72b/omai-interview/screenshots/screen-3-report.png" alt="Self-Assessment Report" />
+          <span class="shot-tag">Step 3</span>
+          <div class="shot-caption">Self-Assessment Report</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="features-section">
+      <div class="section-label">Key Features</div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+          </div>
+          <div class="feat-title">6 Residency Specialties</div>
+          <div class="feat-desc">Internal Medicine, Surgery, Psychiatry, Pediatrics, Emergency Medicine, and Family Medicine.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div class="feat-title">Available 24 / 7</div>
+          <div class="feat-desc">Students practice on their own schedule — no need to coordinate with faculty or peers.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>
+          </div>
+          <div class="feat-title">Instant Transcript &amp; Feedback</div>
+          <div class="feat-desc">Full session transcript and a performance report delivered the moment each interview ends.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+          </div>
+          <div class="feat-title">Private by Design</div>
+          <div class="feat-desc">Runs as a desktop application. Student data and conversations never leave their own computer.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
+          </div>
+          <div class="feat-title">Behavioral &amp; Clinical Modes</div>
+          <div class="feat-desc">Covers MMI-style behavioral questions and in-depth clinical scenario interviews.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+          </div>
+          <div class="feat-title">JABSOM-Aligned Content</div>
+          <div class="feat-desc">Question bank modeled on real JABSOM residency interview formats and faculty guidance.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="status-section">
+      <div class="status-label">Current Development Status</div>
+      <p class="status-text">
+        In active development by the JABSOM Office of Medical Education EdTech team. The core interview application is complete and running — all specialty question systems, transcript delivery, and the self-assessment report are in place. Integration with the NavTalk AI avatar, which brings the interviewer to life with real-time voice and lip-sync, is currently underway.
+      </p>
+      <div class="badges">
+        <span class="badge badge-done">✓ Core app complete</span>
+        <span class="badge badge-done">✓ 6 specialties implemented</span>
+        <span class="badge badge-done">✓ Transcript &amp; report ready</span>
+        <span class="badge badge-wip">In progress: AI avatar integration</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <strong>Office of Medical Education</strong><br/>
+      JABSOM · University of Hawaiʻi at Mānoa
+    </div>
+    <div class="footer-right">OMAI · 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
