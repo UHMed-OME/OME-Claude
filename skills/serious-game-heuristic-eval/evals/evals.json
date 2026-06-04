@@ -1,0 +1,26 @@
+{
+  "skill_name": "serious-game-heuristic-eval",
+  "evals": [
+    {
+      "id": 0,
+      "name": "med-safety-game-with-designdoc",
+      "prompt": "We're building a serious game to teach nursing students medication safety — design doc attached. Can you do a heuristic evaluation from a game-design perspective? I'd like a written review, a scored checklist, and a list of the art/audio assets we'd need with suggestions on where to source them cheaply and legally.",
+      "expected_output": "A written heuristic evaluation (PLAY/HEP, severity-rated), an .xlsx scored checklist, a procedural-rhetoric verdict catching that the speed/combo scoring rewards fast tapping over careful double-checking (incentive conflicts with the safety lesson), and a tiered (Tier 1/2/3) asset list with license-friendly sources.",
+      "files": ["med_safety_game_designdoc.md"]
+    },
+    {
+      "id": 1,
+      "name": "phishing-gamified-training-inline",
+      "prompt": "Our company rolled out a gamified phishing-awareness training. Employees earn 'Security Points' for spotting phishing emails in a simulated inbox, there's a company leaderboard, and you level up through 5 ranks. Managers say it isn't changing real behavior. Evaluate the design from a game-design perspective and tell us what's wrong and how to fix it.",
+      "expected_output": "Evaluation applying the frameworks; procedural-rhetoric audit noting the points/leaderboard may incentivize speed/volume over cautious verification and that there's no transfer to real inboxes; severity-ranked issues; SDT/motivation read; tiered asset suggestions. Report + checklist spreadsheet.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "refugee-empathy-game-inline",
+      "prompt": "Please review an empathy game we prototyped: players take the role of someone fleeing their home, making choices over a 14-day journey while managing Money, Health, and Hope. Running out of any one ends the journey. We want players to come away understanding how constrained these choices really are. Give me a full game-design heuristic evaluation.",
+      "expected_output": "Full evaluation; MDA pass on whether mechanics produce the 'constrained choices' aesthetic; procedural-rhetoric verdict on whether the rules make the intended argument; PLAY/HEP scored checklist; tiered asset list with license-friendly sources; report + spreadsheet.",
+      "files": []
+    }
+  ]
+}
